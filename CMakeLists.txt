@@ -3,5 +3,5 @@ project(ArmyTask)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp Units/Solider.cpp Units/Solider.h)
+set(SOURCE_FILES main.cpp Units/Solider.cpp Units/Solider.h Units/Berserker.cpp Units/Berserker.h)
 add_executable(ArmyTask ${SOURCE_FILES})
