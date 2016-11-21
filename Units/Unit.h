@@ -15,20 +15,19 @@ private:
     void ensureIsAlive();
 public:
     Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance);
-    ~Unit();
+    virtual ~Unit();
 
-    //accessors
-    int getDamage() const;
-    int getHitPoints() const;
-    int getHitPointsLimit() const;
-    const std::string& getName() const;
+    virtual int getDamage() const;
+    virtual int getHitPoints() const;
+    virtual int getHitPointsLimit() const;
+    virtual const std::string& getName() const;
 
-    void takePhysicalDamage(int dmg);
-    void takeMagicalDamage(int dmg);
-    void addHitPoints(int hp);
+    virtual void takePhysicalDamage(int dmg);
+    virtual void takeMagicalDamage(int dmg);
+    virtual void addHitPoints(int hp);
 
-    void attack(Unit& enemy);
-    void counterAttack(Unit& enemy);
+    virtual void attack(Unit& enemy);
+    virtual void counterAttack(Unit& enemy);
 };
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit);
