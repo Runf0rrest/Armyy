@@ -1,7 +1,7 @@
 #include "Vampire.h"
 
-Vampire::Vampire(const std::string &name, int hp, int dmg, double physicalResistance, double magicalResistance) : Unit(
-        name, hp, dmg, physicalResistance, magicalResistance) {}
+Vampire::Vampire(const std::string &name, int hp, int dmg, double physicalResistance, double magicalResistance)
+        : Unit(name, hp, dmg, physicalResistance, magicalResistance) {}
 
 void Vampire::attack(Unit &enemy) {
     int damageDealt = enemy.getHitPoints();
@@ -24,3 +24,4 @@ void Vampire::counterAttack(Unit &enemy) {
     healingPoints = (int)(damageDealt * damageConversionRate);
     this->addHitPoints(healingPoints);
 }
+
