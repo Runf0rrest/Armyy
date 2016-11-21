@@ -8,7 +8,7 @@
 class UnitIsDead {};
 
 class Unit {
-private:
+protected:
     UnitState* unitState;
     std::string* name;
 
