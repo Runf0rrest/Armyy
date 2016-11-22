@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.0)
 project(army)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp Units/Rogue.cpp Units/Rogue.h Units/SpellCaster.cpp Units/SpellCaster.h Abilities/SpellCasterState.cpp Abilities/SpellCasterState.h Spells/Spell.cpp Spells/Spell.h Spells/SpellBook.cpp Spells/SpellBook.h)
-add_executable(army ${SOURCE_FILES})
+set(SOURCE_FILES main.cpp Units/Rogue.cpp Units/SpellCaster.cpp Abilities/SpellCasterState.cpp Spells/Spell.cpp Spells/SpellBook.cpp)
+add_executable(army main.cpp)
