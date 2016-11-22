@@ -3,5 +3,5 @@ project(army)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp Units/Rogue.cpp Units/Rogue.h Units/SpellCaster.cpp Units/SpellCaster.h Abilities/SpellCasterState.cpp Abilities/SpellCasterState.h)
+set(SOURCE_FILES main.cpp Units/Rogue.cpp Units/Rogue.h Units/SpellCaster.cpp Units/SpellCaster.h Abilities/SpellCasterState.cpp Abilities/SpellCasterState.h Spells/Spell.cpp Spells/Spell.h Spells/SpellBook.cpp Spells/SpellBook.h)
 add_executable(army ${SOURCE_FILES})

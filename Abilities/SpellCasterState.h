@@ -13,6 +13,7 @@ class SpellCasterState {
         SpellCasterState(int mannaPointsLimit, double combatSpellRate, double supportSpellRate);
 
         int getMannaPoints() const;
+        int getMannaPointsLimit() const;
         double getCombatSpellRate() const;
         double getSupportSpellRate() const;
 };
