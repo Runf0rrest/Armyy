@@ -2,9 +2,7 @@
 
 UnitState::UnitState(int healthPointsLimit, double magicalResistance, double physicalResistance, int damage)
         : healthPointsLimit(healthPointsLimit), magicalResistance(magicalResistance),
-          physicalResistance(physicalResistance), damage(damage) {
-
-}
+          physicalResistance(physicalResistance), damage(damage) {}
 
 int UnitState::getHealthPoints() const {
     return this->healthPoints;

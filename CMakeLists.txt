@@ -4,4 +4,4 @@ project(army)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES main.cpp Units/Rogue.cpp Units/SpellCaster.cpp Abilities/SpellCasterState.cpp Spells/Spell.cpp Spells/SpellBook.cpp)
-add_executable(army main.cpp)
+add_executable(army main.cpp Abilities/NotEnoughMannaException.h)

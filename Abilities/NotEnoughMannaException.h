@@ -1,0 +1,8 @@
+#ifndef NOT_ENOUGH_MANNA_EXCEPTION_H
+#define NOT_ENOUGH_MANNA_EXCEPTION_H
+
+
+class NotEnoughMannaException {};
+
+
+#endif //NOT_ENOUGH_MANNA_EXCEPTION_H
