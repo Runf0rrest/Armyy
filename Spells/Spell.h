@@ -1,14 +1,24 @@
-//
-// Created by Illia on 22.11.2016.
-//
-
-#ifndef ARMY_SPELL_H
-#define ARMY_SPELL_H
+#ifndef SPELL_H
+#define SPELL_H
 
 
 class Spell {
+    protected:
+        bool isCombat;
+        int actionPoints;
+        int mannaRequired;
+        int spellId;
 
+    public:
+        Spell();
+
+        int getActionPoints() const;
+        int getMannaRequired() const;
+        int getSpellID const;
 };
 
+enum Spells{
+    FIREBALL
+};
 
-#endif //ARMY_SPELL_H
+#endif //SPELL_H

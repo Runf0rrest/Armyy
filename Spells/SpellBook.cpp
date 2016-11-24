@@ -1,5 +1,5 @@
-//
-// Created by Illia on 22.11.2016.
-//
-
 #include "SpellBook.h"
+
+SpellBook::SpellBook() {
+    this->spells = new std::map<Spells, Spell>();
+}

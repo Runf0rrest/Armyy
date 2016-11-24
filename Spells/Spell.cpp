@@ -1,5 +1,13 @@
-//
-// Created by Illia on 22.11.2016.
-//
-
 #include "Spell.h"
+
+Spell::Spell() {}
+
+int Spell::getActionPoints() const {
+    return this->getActionPoints;
+}
+int Spell::getMannaRequired() const {
+    return this->getMannaRequired;
+}
+int Spell::getSpellID const {
+    return this->getSpellID;
+};
