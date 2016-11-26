@@ -1,6 +1,13 @@
 #include <iostream>
+#include "Spells/SpellBook.h"
+#include "Spells/FireBall.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    SpellBook* spellBook = new SpellBook();
+
+    spellBook->addSpell(FIREBALL, FireBall());
+
+    std::cout << &(spellBook->getSpell(FIREBALL)) << std::endl;
+
     return 0;
 }

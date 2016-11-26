@@ -1,7 +1,7 @@
 #include "Unit.h"
 #include <iostream>
 
-Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) : {
+Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) {
     *(this->name) = name;
     this->unitState = new UnitState(hp, magicalResistance, physicalResistance, dmg);
 }

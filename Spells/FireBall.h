@@ -3,7 +3,7 @@
 
 #include "Spell.h"
 
-class FireBall : Spell {
+class FireBall : public Spell {
     public:
         FireBall();
 };

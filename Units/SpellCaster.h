@@ -18,4 +18,4 @@ class SpellCaster : Unit {
 };
 
 
-#endif SPELLCASTER_H
+#endif //SPELLCASTER_H

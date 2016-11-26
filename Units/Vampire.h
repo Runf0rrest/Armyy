@@ -6,7 +6,7 @@
 
 class Vampire : Unit {
     protected:
-        double damageConversionRate = 0.2;
+        double damageConversionRate;
     public:
         Vampire(const std::string &name="Vampire", int hp=120, int dmg=35, double physicalResistance=0.3, double magicalResistance=0.05);
 
