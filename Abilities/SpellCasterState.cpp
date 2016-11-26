@@ -1,4 +1,5 @@
 #include "SpellCasterState.h"
+#include "NotEnoughMannaException.h"
 
 SpellCasterState::SpellCasterState(int mannaPointsLimit, double combatSpellRate, double supportSpellRate) {
     this->mannaPoints = mannaPointsLimit;
@@ -21,4 +22,14 @@ double SpellCasterState::getCombatSpellRate() const {
 
 double SpellCasterState::getSupportSpellRate() const {
     return this->supportSpellRate;
+}
+
+void SpellCasterState::decreaseMannaPoints(int mp) {
+    int diff = this->mannaPoints - mp;
+
+    if ( diff < 0 ) {
+        throw NotEnoughMannaException;
+    }
+
+    this->mannaPoints -= mp;
 }

@@ -16,7 +16,8 @@ class SpellCasterState {
         int getMannaPointsLimit() const;
         double getCombatSpellRate() const;
         double getSupportSpellRate() const;
-};
 
+        void decreaseMannaPoints(int mp);
+};
 
 #endif //SPELL_CASTER_STATE_H
