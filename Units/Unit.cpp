@@ -68,6 +68,14 @@ void Unit::takeMagicalDamage(int dmg) {
     this->unitState->takeMagicalDamage(dmg);
 }
 
+void Unit::transformToVampire() {
+
+}
+
+void Unit::transformToWerewolf() {
+
+}
+
 std::ostream& operator<<(std::ostream& out, const Unit& unit) {
     out << unit.getName();
     out << ", Max HP = " << unit.getHitPointsLimit();

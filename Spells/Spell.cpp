@@ -1,17 +1,17 @@
 #include <iostream>
 #include "Spell.h"
 
-Spell::Spell(bool isCombat, int actionPoints, int mannaRequired) {
+Spell::Spell(bool isCombat, int actionPoints, int mannaCost) {
     this->isCombat = isCombat;
     this->actionPoints = actionPoints;
-    this->mannaRequired = mannaRequired;
+    this->mannaCost = mannaCost;
 }
 int Spell::getActionPoints() const {
     return this->actionPoints;
 }
 
-int Spell::getMannaRequired() const {
-    return this->mannaRequired;
+int Spell::getMannaCost() const {
+    return this->mannaCost;
 }
 
 void Spell::cast(Unit& target, double spellRate) const {
