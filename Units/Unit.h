@@ -9,32 +9,30 @@
 class UnitIsDead {};
 
 class Unit : Transformable{
-protected:
-    UnitState* unitState;
-    std::string* name;
+    protected:
+        UnitState* unitState;
+        std::string* name;
 
-    void ensureIsAlive();
+        void ensureIsAlive();
 
+    public:
+        Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance);
+        virtual ~Unit();
 
+        virtual int getDamage() const;
+        virtual int getHitPoints() const;
+        virtual int getHitPointsLimit() const;
+        virtual const std::string& getName() const;
 
-public:
-    Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance);
-    virtual ~Unit();
+        virtual void takePhysicalDamage(int dmg);
+        virtual void takeMagicalDamage(int dmg);
+        virtual void addHitPoints(int hp);
 
-    virtual int getDamage() const;
-    virtual int getHitPoints() const;
-    virtual int getHitPointsLimit() const;
-    virtual const std::string& getName() const;
+        virtual void attack(Unit& enemy);
+        virtual void counterAttack(Unit& enemy);
 
-    virtual void takePhysicalDamage(int dmg);
-    virtual void takeMagicalDamage(int dmg);
-    virtual void addHitPoints(int hp);
-
-    virtual void attack(Unit& enemy);
-    virtual void counterAttack(Unit& enemy);
-
-    virtual void transformToVampire();
-    virtual void transformToWerewolf();
+        virtual void transformToVampire();
+        virtual void transformToWerewolf();
 };
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit);

@@ -1,6 +1,11 @@
 #ifndef UNIT_STATE_H
 #define UNIT_STATE_H
 
+enum States{
+    UNIT,
+    VAMPIRE,
+    WEREWOLF
+};
 
 class UnitState {
     private:
@@ -9,9 +14,10 @@ class UnitState {
         int damage;
         double magicalResistance;
         double physicalResistance;
+        States stateType;
 
     public:
-        UnitState(int healthPointsLimit, double magicalResistance, double physicalResistance, int damage);
+        UnitState(int healthPointsLimit, double magicalResistance, double physicalResistance, int damage, States stateType);
 
         int getHealthPoints() const;
         int getHealthPointsLimit() const;
@@ -20,6 +26,12 @@ class UnitState {
 
         double getMagicalResistance() const;
         double getPhysicalResistance() const;
+        States getStateType() const;
+
+        void convertToVampireState();
+        void convertToWerewolfState();
+
+
 
         void takePhysicalDamage(int damage);
         void takeMagicalDamage(int damage);
