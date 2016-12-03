@@ -7,7 +7,7 @@
 
 class SpellBook {
     protected:
-        std::map<SpellsId, Spell>* spells;
+        std::map<SpellsId, Spell*>* spells;
 
     public:
         SpellBook();
@@ -15,7 +15,7 @@ class SpellBook {
         SpellBook(const SpellBook& copy);
 
         const Spell& getSpell(SpellsId spellId) const;
-        void addSpell(SpellsId spellId, Spell spell);
+        void addSpell(SpellsId spellId, Spell* spell);
 
         const SpellBook& operator=(const SpellBook& other);
 };

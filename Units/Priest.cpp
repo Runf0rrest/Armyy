@@ -1,7 +1,6 @@
 #include <typeinfo>
 #include "Priest.h"
 #include "../Abilities/NotEnoughMannaException.h"
-#include "Undead.h"
 
 Priest::Priest(const std::string &name, int hp, int dmg, double physicalResistance, double magicalResistance, int mp,
                double combatSpellDamageRate, double supportSpellDamageRate)
@@ -21,7 +20,6 @@ void Priest::castSpell(SpellsId spellId, Unit& target) {
         } else {
             spell.cast(target, this->spellCasterState->getCombatSpellRate());
         }
-
     } else {
         spell.cast(target, this->spellCasterState->getSupportSpellRate());
     }
