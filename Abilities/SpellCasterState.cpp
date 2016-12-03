@@ -25,11 +25,5 @@ double SpellCasterState::getSupportSpellRate() const {
 }
 
 void SpellCasterState::decreaseMannaPoints(int mp) {
-    int diff = this->mannaPoints - mp;
-
-    if ( diff < 0 ) {
-        throw NotEnoughMannaException();
-    }
-
     this->mannaPoints -= mp;
 }

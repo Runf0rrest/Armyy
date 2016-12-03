@@ -4,6 +4,7 @@
 Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) {
     this->name = new std::string(name);
     this->unitState = new UnitState(hp, magicalResistance, physicalResistance, dmg, UNIT);
+    this->isUnitUndead = false;
     this->unitAttack = new Attack();
 }
 
@@ -69,6 +70,7 @@ void Unit::takeMagicalDamage(int dmg) {
 
 void Unit::transformToVampire() {
     this->unitState->convertToVampireState();
+    this->isUnitUndead = true;
 }
 
 void Unit::transformToWerewolf() {
@@ -77,6 +79,10 @@ void Unit::transformToWerewolf() {
 
 States Unit::getsStateType() const {
     return this->unitState->getStateType();
+}
+
+bool Unit::isUndead() {
+    return this->isUnitUndead;
 }
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit) {

@@ -4,6 +4,8 @@
 #include "../Units/Unit.h"
 #include "UnitState.h"
 
+class Unit;
+
 class Attack {
     public:
         Attack();

@@ -7,9 +7,11 @@
 #include "../Abilities/Transformable.h"
 #include "../Abilities/Attack.h"
 
+class Attack;
 
 class Unit : Transformable{
     protected:
+        bool isUnitUndead;
         Attack* unitAttack;
         UnitState* unitState;
         std::string* name;
@@ -19,6 +21,8 @@ class Unit : Transformable{
     public:
         Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance);
         virtual ~Unit();
+
+        virtual bool isUndead();
 
         virtual int getDamage() const;
         virtual int getHitPoints() const;
