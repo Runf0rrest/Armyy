@@ -2,8 +2,9 @@
 #include <iostream>
 
 Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) {
-    *(this->name) = name;
+    this->name = new std::string(name);
     this->unitState = new UnitState(hp, magicalResistance, physicalResistance, dmg, UNIT);
+    this->unitAttack = new Attack();
 }
 
 Unit::~Unit() {
@@ -13,7 +14,7 @@ Unit::~Unit() {
 
 void Unit::ensureIsAlive() {
     if ( this->unitState->getHealthPoints() == 0 ) {
-        throw UnitIsDead();
+        throw UnitIsDeadException();
     }
 }
 
@@ -48,18 +49,16 @@ void Unit::addHitPoints(int hp) {
 void Unit::attack(Unit& enemy) {
     ensureIsAlive();
 
-    enemy.takePhysicalDamage(this->unitState->getDamage());
-
-    try {
-        enemy.counterAttack(*this);
-    } catch (UnitIsDeadException) {
-        return;
-    }
+    this->unitAttack->attack(*this, this->getsStateType(), this->getDamage(), enemy);
 }
 void Unit::counterAttack(Unit& enemy) {
     ensureIsAlive();
 
-    enemy.takePhysicalDamage(this->unitState->getDamage() / 2);
+    try {
+    this->unitAttack->counterAttack(*this, this->getsStateType(), this->getDamage(), enemy);
+    } catch (UnitIsDeadException) {
+        throw TargetIsDeadException();
+    }
 }
 
 void Unit::takeMagicalDamage(int dmg) {
@@ -73,7 +72,11 @@ void Unit::transformToVampire() {
 }
 
 void Unit::transformToWerewolf() {
-    this->unitState->convertToVampireState();
+    this->unitState->convertToWerewolfState();
+}
+
+States Unit::getsStateType() const {
+    return this->unitState->getStateType();
 }
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit) {

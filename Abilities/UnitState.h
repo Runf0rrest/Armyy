@@ -1,5 +1,6 @@
 #ifndef UNIT_STATE_H
 #define UNIT_STATE_H
+#define VAMPIRISM_RATE 0.2
 
 enum States{
     UNIT,
@@ -21,12 +22,13 @@ class UnitState {
 
         int getHealthPoints() const;
         int getHealthPointsLimit() const;
-
         int getDamage() const;
 
         double getMagicalResistance() const;
         double getPhysicalResistance() const;
         States getStateType() const;
+
+        void setStateType(States stateType);
 
         void convertToVampireState();
         void convertToWerewolfState();
@@ -38,6 +40,5 @@ class UnitState {
         void addHealthPoints(int hp);
 
 };
-
 
 #endif //UNIT_STATE_H

@@ -82,5 +82,9 @@ void UnitState::convertToWerewolfState() {
     this->stateType = WEREWOLF;
 }
 
+void UnitState::setStateType(States stateType) {
+    this->stateType = stateType;
+}
+
 
 

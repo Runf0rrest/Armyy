@@ -5,11 +5,12 @@
 #include "../Abilities/UnitState.h"
 #include "UnitExceptions.h"
 #include "../Abilities/Transformable.h"
+#include "../Abilities/Attack.h"
 
-class UnitIsDead {};
 
 class Unit : Transformable{
     protected:
+        Attack* unitAttack;
         UnitState* unitState;
         std::string* name;
 
@@ -23,6 +24,7 @@ class Unit : Transformable{
         virtual int getHitPoints() const;
         virtual int getHitPointsLimit() const;
         virtual const std::string& getName() const;
+        virtual States getsStateType() const;
 
         virtual void takePhysicalDamage(int dmg);
         virtual void takeMagicalDamage(int dmg);

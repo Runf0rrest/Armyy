@@ -4,5 +4,6 @@
 
 class UnitIsDeadException {};
 
+class TargetIsDeadException {};
 
 #endif //UNIT_EXCEPTIONS_H
