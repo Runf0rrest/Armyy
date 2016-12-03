@@ -7,15 +7,15 @@ class Spell {
     protected:
         bool isCombat;
         int actionPoints;
-        int mannaRequired;
+        int mannaCost;
 
     public:
-        Spell(bool isCombat=true, int actionPoints=10, int mannaRequired=10);
+        Spell(bool isCombat, int actionPoints, int mannaCost);
 
         void cast(Unit& target, double spellRate) const;
 
         int getActionPoints() const;
-        int getMannaRequired() const;
+        int getMannaCost() const;
 };
 
 #endif //SPELL_H

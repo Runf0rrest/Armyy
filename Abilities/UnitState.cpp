@@ -1,8 +1,8 @@
 #include "UnitState.h"
 
-UnitState::UnitState(int healthPointsLimit, double magicalResistance, double physicalResistance, int damage)
+UnitState::UnitState(int healthPointsLimit, double magicalResistance, double physicalResistance, int damage, States stateType)
         : healthPointsLimit(healthPointsLimit), magicalResistance(magicalResistance),
-          physicalResistance(physicalResistance), damage(damage) {}
+          physicalResistance(physicalResistance), damage(damage), stateType(stateType) {}
 
 int UnitState::getHealthPoints() const {
     return this->healthPoints;
@@ -56,6 +56,30 @@ void UnitState::addHealthPoints(int hp) {
     }
 
     this->healthPoints += hp;
+}
+
+States UnitState::getStateType() const {
+    return this->stateType;
+}
+
+
+void UnitState::convertToVampireState() {
+    if ( this->stateType == VAMPIRE) {
+        return;
+    }
+    this->stateType = VAMPIRE;
+}
+
+void UnitState::convertToWerewolfState() {
+    if ( this->stateType == WEREWOLF ) {
+        return;
+    }
+
+    this->healthPoints *= 1.5;
+    this->healthPointsLimit *= 1.5;
+    this->damage *= 1.5;
+    this->magicalResistance = -0.2;
+    this->stateType = WEREWOLF;
 }
 
 
