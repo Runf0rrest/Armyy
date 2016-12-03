@@ -5,5 +5,4 @@ project(army)
 
 file (GLOB SOURCE_FILES "*/*.cpp" "*.cpp")
 
-add_executable(main ${SOURCE_FILES})
-
+add_executable(main ${SOURCE_FILES} Abilities/Attack.cpp Abilities/Attack.h)
