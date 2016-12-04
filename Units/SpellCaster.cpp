@@ -15,7 +15,7 @@ void SpellCaster::castSpell(SpellsId spellId, Unit target) {
         throw NotEnoughMannaException();
     }
 
-    if ( spell.isCombat ) {
+    if ( spell.isCombat() ) {
         spell.cast(target, this->spellCasterState->getCombatSpellRate());
     } else {
         spell.cast(target, this->spellCasterState->getSupportSpellRate());

@@ -14,7 +14,7 @@ void Priest::castSpell(SpellsId spellId, Unit& target) {
         throw NotEnoughMannaException();
     }
 
-    if ( spell.isCombat ) {
+    if ( spell.isCombat() ) {
         if ( target.isUndead() ) {
             spell.cast(target, this->spellCasterState->getCombatSpellRate() * 2.0);
         } else {

@@ -6,7 +6,7 @@
 #include "../Spells/Spell.h"
 #include "../Spells/SpellBook.h"
 
-class SpellCaster : Unit {
+class SpellCaster : public Unit {
     protected:
         SpellCasterState* spellCasterState;
         SpellBook *spellBook;

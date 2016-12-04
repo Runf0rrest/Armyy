@@ -2,6 +2,7 @@
 #define ARMY_PRIEST_H
 
 #include "Healer.h"
+#include "Unit.h"
 
 class Priest : public Healer {
     public:
