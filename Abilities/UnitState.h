@@ -1,6 +1,8 @@
 #ifndef UNIT_STATE_H
 #define UNIT_STATE_H
+
 #define VAMPIRISM_RATE 0.2
+#define NECROMANCER_CONVERSION_RATE 0.2
 
 enum States{
     UNIT,
@@ -29,6 +31,7 @@ class UnitState {
         States getStateType() const;
 
         void setStateType(States stateType);
+        void setHitPoints(int hp);
 
         void convertToVampireState();
         void convertToWerewolfState();

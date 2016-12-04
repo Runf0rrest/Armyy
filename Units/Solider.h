@@ -4,7 +4,7 @@
 #include "Unit.h"
 
 
-class Solider : Unit {
+class Solider : public Unit {
     public:
         Solider(const std::string& name="Solider", int hp=100, int dmg=15, double physicalResistance=0.15, double magicalResistance=0.2);
 };

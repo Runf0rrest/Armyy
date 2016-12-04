@@ -6,10 +6,12 @@
 #include "UnitExceptions.h"
 #include "../Abilities/Transformable.h"
 #include "../Abilities/Attack.h"
+#include "Observable.h"
+#include "Observer.h"
 
 class Attack;
 
-class Unit : Transformable{
+class Unit : public Transformable, public Observable, public Observer {
     protected:
         bool isUnitUndead;
         Attack* unitAttack;
@@ -39,6 +41,14 @@ class Unit : Transformable{
 
         virtual void transformToVampire();
         virtual void transformToWerewolf();
+
+        virtual void addObserver(Observer *observer);
+        virtual void deleteObserver(Observer *observer);
+        virtual void notifyObservers();
+
+        virtual void addObservable(Observable *observable);
+        virtual void deleteObservable(Observable *observable);
+        virtual void handleEvent(Observable *observable);
 };
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit);

@@ -86,5 +86,9 @@ void UnitState::setStateType(States stateType) {
     this->stateType = stateType;
 }
 
+void UnitState::setHitPoints(int hp) {
+    this->healthPoints = hp;
+}
+
 
 

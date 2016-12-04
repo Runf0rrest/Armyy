@@ -5,5 +5,5 @@ project(army)
 
 file (GLOB SOURCE_FILES "*/*.cpp" "*.cpp")
 
-add_executable(main ${SOURCE_FILES} Units/Warlock.cpp Units/Warlock.h Units/Demon.cpp Units/Demon.h)
+add_executable(main ${SOURCE_FILES})
 

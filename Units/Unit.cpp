@@ -1,5 +1,4 @@
 #include "Unit.h"
-#include <iostream>
 
 Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) {
     this->name = new std::string(name);
@@ -39,6 +38,11 @@ void Unit::takePhysicalDamage(int dmg) {
     ensureIsAlive();
 
     unitState->takePhysicalDamage(dmg);
+
+    if ( this->getHitPoints() == 0 ) {
+        notifyObservers();
+        this->observers->clear();
+    }
 }
 
 void Unit::addHitPoints(int hp) {
@@ -66,6 +70,11 @@ void Unit::takeMagicalDamage(int dmg) {
     ensureIsAlive();
 
     this->unitState->takeMagicalDamage(dmg);
+
+    if ( this->getHitPoints() == 0 ) {
+        notifyObservers();
+        this->observers->clear();
+    }
 }
 
 void Unit::transformToVampire() {
@@ -84,6 +93,32 @@ States Unit::getsStateType() const {
 bool Unit::isUndead() {
     return this->isUnitUndead;
 }
+
+void Unit::addObserver(Observer *observer) {
+    this->observers->insert(observer);
+}
+
+void Unit::deleteObserver(Observer *observer) {
+    this->observers->erase(observer);
+}
+
+void Unit::notifyObservers() {
+    std::set<Observer*>::iterator iterator = observers->begin();
+
+    for ( ; iterator != observers->end(); iterator++ ) {
+        (*iterator)->handleEvent(this);
+    }
+}
+
+void Unit::addObservable(Observable *observable) {
+    this->observables->insert(observable);
+}
+
+void Unit::deleteObservable(Observable *observable) {
+    this->observables->erase(observable);
+}
+
+void Unit::handleEvent(Observable *observable) {}
 
 std::ostream& operator<<(std::ostream& out, const Unit& unit) {
     out << unit.getName();
