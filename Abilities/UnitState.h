@@ -5,7 +5,7 @@
 #define NECROMANCER_CONVERSION_RATE 0.2
 
 enum States{
-    UNIT,
+    HUMAN,
     VAMPIRE,
     WEREWOLF
 };

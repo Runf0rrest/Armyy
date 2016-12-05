@@ -2,7 +2,7 @@
 
 Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, double magicalResistance) {
     this->name = new std::string(name);
-    this->unitState = new UnitState(hp, magicalResistance, physicalResistance, dmg, UNIT);
+    this->unitState = new UnitState(hp, magicalResistance, physicalResistance, dmg, HUMAN);
     this->isUnitUndead = false;
     this->unitAttack = new Attack();
 }
@@ -10,6 +10,7 @@ Unit::Unit(const std::string& name, int hp, int dmg, double physicalResistance, 
 Unit::~Unit() {
     delete this->unitState;
     delete this->name;
+    delete this->unitAttack;
 }
 
 void Unit::ensureIsAlive() {

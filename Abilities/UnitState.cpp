@@ -64,14 +64,14 @@ States UnitState::getStateType() const {
 
 
 void UnitState::convertToVampireState() {
-    if ( this->stateType == VAMPIRE) {
+    if ( this->stateType != HUMAN ) {
         return;
     }
     this->stateType = VAMPIRE;
 }
 
 void UnitState::convertToWerewolfState() {
-    if ( this->stateType == WEREWOLF ) {
+    if ( this->stateType != HUMAN ) {
         return;
     }
 

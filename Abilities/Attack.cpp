@@ -5,7 +5,7 @@ Attack::Attack() {}
 
 void Attack::attack(Unit& attacker, States attackerState, int damage, Unit& target) {
     switch (attackerState) {
-        case UNIT : normalAttack(attacker, damage, target);
+        case HUMAN : normalAttack(attacker, damage, target);
             break;
         case VAMPIRE : vampireAttack(attacker, damage, target);
             break;
@@ -15,7 +15,7 @@ void Attack::attack(Unit& attacker, States attackerState, int damage, Unit& targ
 
 void Attack::counterAttack(Unit &attacker, States attackerState, int damage, Unit &target) {
     switch (attackerState) {
-        case UNIT : normalCounterAttack(attacker, damage, target);
+        case HUMAN : normalCounterAttack(attacker, damage, target);
             break;
         case VAMPIRE : vampireCounterAttack(attacker, damage, target);
             break;
